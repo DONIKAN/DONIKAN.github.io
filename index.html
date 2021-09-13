@@ -1,0 +1,47 @@
+<meta content="utf-8" http-equiv="encoding">
+</head>
+<body>
+    <div id="banner_container"></div>
+<audio controls id="voice" hidden></audio>
+<button class="play_button">Play</button>
+  <div id="banner_container"></div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="xman.min.js"></script>
+  <script type="text/javascript">
+   var adman = new AdMan.Manager({
+   country: "GLOBAL",
+   playerId: "voice",
+   playerType: AdMan.PlayerType.TAG_AUDIO,
+   admanId: 1249,//1987,
+   protocol: "https://",
+         voice: {
+       mobile: true
+     },
+      banner: {
+        id: "banner_container",
+        width: 728,
+        height: 90
+      },
+      events: {
+        adNone: function() {
+          // start player
+          // $("#player").play();
+        },
+        adCompleted: function() {
+          // start player
+          // $("#player").play();
+        }
+      }
+    });
+  $(".play_button").click(function() {
+      adman.start();
+      console.log(adman);
+    });
+    $(document).ready(function(){
+    adman.start();
+    setInterval(function(){ adman.start(); }, 5000);
+    });
+  </script>
+
+</body>
+</html>
